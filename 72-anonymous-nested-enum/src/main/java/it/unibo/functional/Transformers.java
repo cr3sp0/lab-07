@@ -65,6 +65,9 @@ public final class Transformers {
      */
     public static <I, O> List<O> transform(final Iterable<I> base, final Function<I, O> transformer) {
         final var result = new ArrayList<O>();
+        for (I input : base) {
+            result.add(transformer.call(input));
+        }
         return result;
     }
 
